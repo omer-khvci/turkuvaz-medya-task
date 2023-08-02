@@ -29,16 +29,14 @@ const NewsPage = () => {
 
 
         <Grid container spacing={4} sx={{
-            paddingLeft: "10px",
-            paddingTop: "20px"
-
+        
         }}>
             <Grid item xs={6} sx={{
                 
             }}>
                 <Card sx={{
                     width: 500,
-                    
+                    margin:"auto"
 
                 }}>
                     <CardActionArea onClick={handleCardClick}>
@@ -46,7 +44,7 @@ const NewsPage = () => {
                             component="img"
                             image={data[0]?.primaryImage}
                             alt=""
-                            height="100"
+                            height="300"
                             sx={{
                                 objectFit: "contain"
                             }}

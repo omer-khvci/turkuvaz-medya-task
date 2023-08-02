@@ -17,7 +17,7 @@ class CustomDocument extends Document {
                 />
 
             </Head>
-            <body style={{ margin: "0", background: '#FDFDFD' }}>
+            <body>
                 <Main />
                 <NextScript />
             </body>
