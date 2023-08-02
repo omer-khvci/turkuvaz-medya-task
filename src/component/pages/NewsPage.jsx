@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import NewsService from "../../../services/get-news";
-import { Box, Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Container, Grid, Typography } from "@mui/material";
+import Link from "next/link";
 
-const NewsPage = () =>{
+const NewsPage = () => {
     const [data, setData] = useState([])
     const [isUseEffectCall, setIsUseEffectCall] = useState(false)
-
+    const uris = data[1]?.Url;
     useEffect(() => {
         if (isUseEffectCall) return
         setIsUseEffectCall(true)
@@ -18,37 +19,64 @@ const NewsPage = () =>{
         setData(response)
     }
 
-    
+    const handleCardClick = (index) => {
+        window.open(`${data[index]?.Url}`, "_blank");
+    }
 
 
-    return(
-      
-       <Box>
-        
-        <Card sx={{ maxWidth: 345,
-        marginLeft:"20px",
-        marginTop:"25px" 
-        
+    return (
+
+
+
+        <Grid container spacing={4} sx={{
+            paddingLeft: "10px",
+            paddingTop: "20px"
+
         }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="350"
-          image={data[0]?.primaryImage}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-       </Box>
+            <Grid item xs={6} sx={{
+                
+            }}>
+                <Card sx={{
+                    width: 500,
+                    
+
+                }}>
+                    <CardActionArea onClick={handleCardClick}>
+                        <CardMedia
+                            component="img"
+                            image={data[0]?.primaryImage}
+                            alt=""
+                            height="100"
+                            sx={{
+                                objectFit: "contain"
+                            }}
+
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h2" sx={{ textAlign: "center" }}>
+                                {data[0]?.TitleShort}
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
+            </Grid>
+            <Grid item xs={6}>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} sx={{textAlign:"center"}}>
+
+                        <Button href={data[1]?.Url} target="_blank">
+                        <img src={data[1]?.secondaryImage} />
+                        </Button>
+                    </Grid>
+                    <Grid item xs={12} sx={{textAlign:"center"}}>
+                    <Button href={data[3]?.Url} target="_blank">
+                        <img src={data[3]?.secondaryImage} />
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+
     )
 }
 export default NewsPage;

@@ -5,8 +5,10 @@ const NewsService ={
         const url = `${ApiUrl}/352`
         const request = await fetch(url)
         const response = await request.json();
-        
+        if(response.meta.status_code == 200)
         return await response.data.articles.Response;
+        else
+        return false;
         
     },
     
