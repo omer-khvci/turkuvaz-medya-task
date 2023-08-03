@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Container, Divider, Grid, Tooltip, Typography } from "@mui/material";
+import { Box, Button, Card, CardActionArea, CardMedia, Container, Divider, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import NewsService from "../../../services/get-news";
 import NewsItem from "../NewsItem";
@@ -11,13 +11,11 @@ const NewsPage = () => {
     const [date, setDate] = useState(null);
     const [isUseEffectCall, setIsUseEffectCall] = useState(false);
 
-
     useEffect(() => {
         if (isUseEffectCall) return
         setIsUseEffectCall(true);
         getNews();
         getVideos();
-
     }, [])
 
     const getNews = async () => {
@@ -28,16 +26,11 @@ const NewsPage = () => {
     const getVideos = async () => {
         const response = await NewsService.GetVideoNews();
         setVideo(response);
-        let text = response[0]?.OutputDate;
-
-        const myArray = text?.split(" ");
-        setDate({ date: myArray[1], hour: myArray[2] });
+        let getDateValue = response[0]?.OutputDate;
+        const dateValueParse = getDateValue?.split(" ");
+        setDate({ date: dateValueParse[1], hour: dateValueParse[2] });
     }
-
-
     return (
-
-
         <Container>
             <Grid container spacing={4} sx={{ mb: 5 }} alignItems={'center'}>
                 <Grid item xs={6} sx={{}}>
@@ -58,9 +51,7 @@ const NewsPage = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-
             </Grid>
-
             <Grid container spacing={4}>
                 {
                     [1, 2, 3, 4].map((item) => (
@@ -69,24 +60,18 @@ const NewsPage = () => {
                         </Grid>
                     ))
                 }
-
-
             </Grid>
-
             <Divider sx={{ my: 5 }} />
-
             <Grid container spacing={5}>
                 {
                     [1, 2, 3].map((item) => (
                         <Grid item xs={12} key={item}>
-
                             <Typography variant="h5">
                                 {data[8 + item]?.Title}
                             </Typography>
                             <Typography component="p">
                                 {data[8 + item]?.Spot}
                             </Typography>
-
                         </Grid>
                     ))
                 }
@@ -117,15 +102,13 @@ const NewsPage = () => {
                                         image={data[item]?.primaryImage}
                                         alt={data[item]?.TitleShort}
                                         height="90%"
-                                        width="100%"
-                                    
+                                        width="100%"                                   
                                         sx={{
                                             objectFit: "contain"
                                         }}
                                     />
                                 </CardActionArea>
                             </Card >
-
                         </Grid>
                     ))
                 }

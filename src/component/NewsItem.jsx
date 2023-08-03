@@ -18,22 +18,14 @@ function NewsItem({ src, title, href, heightImg }) {
                     sx={{
                         objectFit: "contain"
                     }}
-
                 />
                 <CardContent >
-                    <Typography gutterBottom variant="h8" sx={{
-                        textAlign: "center",
-                        // whiteSpace: 'nowrap',
-                        // overflow: 'hidden',
-                        // textOverflow: 'ellipsis',
-                        // width: '190px',
-                        // display: 'inline-block',
-                    }}>
+                    <Typography gutterBottom variant="h8" sx={{textAlign: "center"}}>
                         {title}
                     </Typography>
                 </CardContent>
             </CardActionArea>
-        </Card >
+        </Card>
     )
 }
 export default NewsItem;

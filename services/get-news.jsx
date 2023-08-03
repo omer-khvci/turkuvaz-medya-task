@@ -6,10 +6,8 @@ const NewsService ={
         const request = await fetch(url)
         const response = await request.json();
         if(response.meta.status_code == 200)
-        return await response.data.articles.Response;
-        else
+        return response.data.articles.Response;
         return false;
-        
     },
     
     GetVideoNews : async () =>{
@@ -17,8 +15,7 @@ const NewsService ={
         const request = await fetch(url)
         const response = await request.json();
         if(response.meta.status_code == 200)
-        return await response.data.videos.Response;
-        else
+        return response.data.videos.Response;
         return false;
     }
 }
