@@ -4,7 +4,8 @@ import React from 'react'
 function NewsItem({ src, title, href, heightImg }) {
     return (
         <Card sx={{
-
+            height:"335px",
+            overflow:"auto"
 
         }}>
             <CardActionArea href={href} sx={{}}>
@@ -22,11 +23,11 @@ function NewsItem({ src, title, href, heightImg }) {
                 <CardContent >
                     <Typography gutterBottom variant="h8" sx={{
                         textAlign: "center",
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        width: '190px',
-                        display: 'inline-block',
+                        // whiteSpace: 'nowrap',
+                        // overflow: 'hidden',
+                        // textOverflow: 'ellipsis',
+                        // width: '190px',
+                        // display: 'inline-block',
                     }}>
                         {title}
                     </Typography>

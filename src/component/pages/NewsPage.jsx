@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActionArea, CardMedia, Container, Divider, Grid, Tooltip, Typography } from "@mui/material";
+import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Container, Divider, Grid, Tooltip, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import NewsService from "../../../services/get-news";
 import NewsItem from "../NewsItem";
@@ -41,7 +41,7 @@ const NewsPage = () => {
         <Container>
             <Grid container spacing={4} sx={{ mb: 5 }} alignItems={'center'}>
                 <Grid item xs={6} sx={{}}>
-                    <NewsIMainItem heightImg={'300px'} src={data[0]?.primaryImage} title={data[0]?.TitleShort} href={data[0]?.Url} />
+                    <NewsIMainItem heightImg={'90%'} src={data[0]?.primaryImage} title={data[0]?.TitleShort} href={data[0]?.Url} />
                 </Grid>
                 <Grid item xs={6}>
                     <Grid container spacing={2}>
@@ -65,7 +65,7 @@ const NewsPage = () => {
                 {
                     [1, 2, 3, 4].map((item) => (
                         <Grid item xs={12} md={3} key={item} sx={{}}>
-                            <NewsItem heightImg={'100px'} src={data[4 + item]?.primaryImage} title={data[4 + item]?.TitleShort} href={data[4 + item]?.Url} />
+                            <NewsItem heightImg={'90%'} src={data[4 + item]?.primaryImage} title={data[4 + item]?.TitleShort} href={data[4 + item]?.Url} />
                         </Grid>
                     ))
                 }
@@ -95,7 +95,7 @@ const NewsPage = () => {
             <Box>
                 <Player playsInline poster={getVideo[0]?.primaryImage} src={getVideo[0]?.VideoUrl} />
             </Box>
-            <Grid container spacing={5}>
+            <Grid container spacing={5} sx={{marginTop:"5px"}}>
                 <Grid item xs={6}>
                     <Typography variant="h4">{getVideo[0]?.TitleShort}</Typography>
                     <Typography component="p">{getVideo[0]?.Spot}</Typography>
@@ -116,8 +116,9 @@ const NewsPage = () => {
                                         component="img"
                                         image={data[item]?.primaryImage}
                                         alt={data[item]?.TitleShort}
-                                        height="100px"
+                                        height="90%"
                                         width="100%"
+                                    
                                         sx={{
                                             objectFit: "contain"
                                         }}
