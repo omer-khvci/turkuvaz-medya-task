@@ -14,9 +14,12 @@ const NewsService ={
     
     GetVideoNews : async () =>{
         const url = `${ApiUrl}/424`;
-        const response = await fetch(url)
-    
-        return await response.json();
+        const request = await fetch(url)
+        const response = await request.json();
+        if(response.meta.status_code == 200)
+        return await response.data.videos.Response;
+        else
+        return false;
     }
 }
 

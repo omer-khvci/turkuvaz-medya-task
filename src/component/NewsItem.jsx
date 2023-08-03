@@ -1,7 +1,7 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
+import { Button, Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import React from 'react'
 
-function NewsC4Item({ src, title, href, heightImg }) {
+function NewsItem({ src, title, href, heightImg }) {
     return (
         <Card sx={{
 
@@ -11,7 +11,7 @@ function NewsC4Item({ src, title, href, heightImg }) {
                 <CardMedia
                     component="img"
                     image={src}
-                    alt=""
+                    alt={title}
                     height={heightImg}
                     width="100%"
                     sx={{
@@ -35,4 +35,4 @@ function NewsC4Item({ src, title, href, heightImg }) {
         </Card >
     )
 }
-export default NewsC4Item;
+export default NewsItem;

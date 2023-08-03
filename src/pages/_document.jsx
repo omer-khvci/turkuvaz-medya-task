@@ -17,7 +17,7 @@ class CustomDocument extends Document {
                 />
 
             </Head>
-            <body>
+            <body style={{backgroundColor:"#FcFcFc"}}>
                 <Main />
                 <NextScript />
             </body>
